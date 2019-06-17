@@ -17,7 +17,7 @@ type MgnErrorJson struct {
 var myresponsejson MgnErrorJson
 
 func (this *TestController) Get() {
-	this.home("home")
+	this.Symptom_Checker() 
 }
 
 func (this *TestController) Post() {

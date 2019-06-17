@@ -1,0 +1,208 @@
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+
+<body>
+  <div id="fullscreen_bg" class="fullscreen_bg">
+    <nav class="navbar navbar-expand-lg navbar-dark success-color">
+      <a class="navbar-brand" title="Home" href="/">Bird Clinic</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="contact_us">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Find a pro</a>
+          </li>
+
+        </ul>
+        <a class="nav-link nav-item btn btn-outline-white waves-effect" href="/specialist-authentication">Get in as
+          specialist</a>
+
+      </div>
+    </nav>
+    <div class="card mt-5 mb-5 ml-auto mr-auto col-md-4 p-4">
+      <div class="row text-heading text-primary">
+        <div class="col">
+          <h3 class="active " id="login-form-link">Login</h3>
+        </div>
+        <div class="col text-right">
+          <h3 id="register-form-link" id="farmerlogin">Register</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 ml-auto mr-auto card p-5">
+        <form id="login-form" role="form">
+          <div class="form-group">
+            <input type="text" name="username" id="usernameA" tabindex="1" class="form-control" placeholder="Username"
+              value="">
+            <small id="usernameErrorA" class="text-danger small-text" style="display: none;">Username
+              does not exist</small>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" id="passwordA" tabindex="2" class="form-control"
+              placeholder="Password">
+            <small id="passwordErrorA" class="text-danger small-text" style="display: none;">Incorrect password</small>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-block" id="farmerlogin">Log In</button>
+          </div>
+        </form>
+
+        <form id="register-form" role="form" style="display: none;">
+          <div class="form-group">
+            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username"
+              value="">
+            <small id="usernameError" class="text-danger small-text" style="display: none;">Username
+              already taken</small>
+          </div>
+          <div class="form-group">
+            <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+            <small id="emailError" class="text-danger small-text" style="display: none;">Email address
+              already used</small>
+            <small id="emailError2" class="text-danger small-text" style="display: none;">Email address
+              already used</small>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" id="passwor" tabindex="2" class="form-control"
+              placeholder="Password">
+              <small id="passwordErro" class="text-danger small-text" style="display: none;"></small>
+          </div>
+          <div class="form-group">
+            <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control"
+              placeholder="Confirm Password">
+            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-center text-warning text-muted mb-4">
+              At least 8 characters of both upper and lower case and a digit
+            </small>
+            <small id="cpasswordError" class="text-danger small-text" style="display: none;">Invalid password-At least 8
+              characters of both upper and lower case and a digit</small>
+            <small id="cpasswordError2" class="text-danger small-text" style="display: none;">Password and confirm
+              password do not match</small>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-block" id="farmer_reg">Register</button>
+
+          </div>
+          <div>
+            <hr>
+          </div>
+          <div class="text-center">
+            <a href="" data-toggle="modal" data-target="#proreg">Join as a specialist <i
+                class="fas fa-angle-double-right"></i></a>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- specialist registration modal -->
+  <div class="modal fade " id="proreg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog card" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="text-success text-center font-weight-bolder">Sign Up</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="my-3 borde m-3 p-3">
+          <div class="row ">
+            <div class="col">
+              <input type="text" name="firstname" id="first" placeholder="Firstname" class="form-control">
+              <small id="firstError" class="text-danger small-text" style="display: none;">Fill in first
+                name</small>
+            </div>
+
+            <div class="col">
+              <input type="text" name="lastname" id="last" placeholder="Lastname" class="form-control">
+              <small id="lastError" class="text-danger small-text" style="display: none;">Fill in last
+                name</small>
+            </div>
+          </div>
+          <div class="row mt-4 ">
+            <div class="col">
+              <input type="text" name="username" id="username3" placeholder="Username" class="form-control">
+              <small id="usernameError3" class="text-danger small-text" style="display: none;">Fill in the
+                username
+              </small>
+              <small id="usernameError4" class="text-danger small-text" style="display: none;">Username
+                already taken
+              </small>
+            </div>
+
+            <div class="col">
+              <input type="text" name="email" id="email3" placeholder="Email" class="form-control">
+              <small id="emailError3" class="text-danger small-text" style="display: none;">Email address
+                already taken </small>
+              <small id="emailError4" class="text-danger small-text" style="display: none;">Invalid email
+                address </small>
+                <small id="emailError5" class="text-danger small-text" style="display: none;">Fill in the email address</small>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <input type="text" name="phone" id="phone" placeholder="Phone Number" class="form-control">
+              <small id="phoneError" class="text-danger small-text" style="display: none;">Phone number
+                already taken </small>
+              <small id="phoneError2" class="text-danger small-text" style="display: none;">Invalid phone
+                number
+              </small>
+            </div>
+
+            <div class="col">
+              <input type="text" name="district" id="district" placeholder="District" class="form-control">
+              <small id="districtError" class="text-danger small-text" style="display: none;">Fill in district
+                name</small>
+            </div>
+          </div>
+          <div class="row mt-4">  
+            <div class="col">
+              <input type="text" name="county" id="county" placeholder="County" class="form-control">
+              <small id="countyError" class="text-danger small-text" style="display: none;">Fill in county
+                name</small>
+            </div>
+
+            <div class="col">
+              <input type="text" name="country" id="country" placeholder="Country" class="form-control">
+              <small id="countryError" class="text-danger small-text" style="display: none;">Fill in country
+                name</small>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <input type="text" name="password" id="password3" placeholder="Password" class="form-control">
+              <small id="passwordError3" class="text-danger small-text" style="display: none;"></small>
+            </div>
+            <div class="col">
+              <input type="text" name="copassword" id="copassword3" placeholder="Confirm-password" class="form-control">
+              <small id="copasswordError3" class="text-danger small-text" style="display: none;"></small>
+            </div>
+            <small id="error" class="text-danger small-text" style="display: none;">Password must contain 8 or
+              more characters including digits& both capital and small letters</small>
+            <small id="error1" class="text-danger small-text" style="display: none;">Password and confirm
+              password does not match</small>
+
+
+          </div>
+          <small id="defaultRegisterFormPasswordHelpBlock"
+            class="form-text text-center font-weight-bold text-warning text-muted mb-4">
+            At least 8 characters of both upper and lower case and a digit
+          </small>
+          <div class="col mt-4">
+            <button class="btn btn-success px-5 btn-block" id="reg">Register</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/a.js"></script>
+  <script type="text/javascript" src="/static/js/f-login.js"></script>
+  <script type="text/javascript" src="/static/js/f-signup.js"></script>
+    <script type="text/javascript" src="/static/js/specialistSignup.js"></script>
+
+</body>

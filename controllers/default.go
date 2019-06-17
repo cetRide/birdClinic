@@ -17,6 +17,7 @@ func (this *MainController) Prepare() {
 		"/static/css/mdb/mdb.min.css",
 		"/static/css/mdb/style.min.css",
 		"/static/css/jquery.transfer.css",
+		"/static/css/a.css",
 		"/static/css/icon_font/css/icon_font.css",
 	
 		}
@@ -32,14 +33,53 @@ func (this *MainController) Prepare() {
 	}
 }
 
+//landing page render
 func (this *MainController) Get() {
-	this.Data["Title"] = "iReferral-Welcome"
+	this.Data["Title"] = "Bird clinic symptom-home"
 	this.Layout = "layout.tpl"
-		this.TplName = "home.html"
+	this.TplName = "landing.html"
 }
 
-func (this *MainController) home(view string) {
-	this.Data["Title"] = "iReferral-Welcome"
+//authentication page render
+func (this *MainController) Authentication() {
+	this.Data["Title"] = "Get started with bird clinic"
 	this.Layout = "layout.tpl"
-	this.TplName = view + ".html"
+	this.TplName = "authentication.html"
+}
+
+//contact us page render
+func (this *MainController) Contact_Us() {
+	this.Data["Title"] = "Bird clinic- Write to us"
+	this.Layout = "layout.tpl"
+	this.TplName = "contactus.html"
+}
+
+//symptom checker page render
+func (this *MainController) Symptom_Checker() {
+	this.Data["Title"] = "Bird clinic- Symptom_checker"
+	this.Layout = "layout.tpl"
+	this.TplName = "symptoms.html"
+}
+
+func (this *MainController) SpecialistAuth() {
+	this.Data["Title"] = "Bird clinic- get started as a specialist"
+	this.Layout = "layout.tpl"
+	this.TplName = "specialistauth.html"
+}
+
+func (this *MainController) SpecialistMess() {
+	this.Data["Title"] = "Bird clinic- view messages"
+	this.Layout = "layout.tpl"
+	this.TplName = "specialistmessage.html"
+}
+
+func (this *MainController) Logout() {
+	// Check if user is logged in
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID != nil {
+		// UserID is set and can be deleted
+		session.Delete("UserID")
+	}
+	this.Redirect("/", 302)
 }

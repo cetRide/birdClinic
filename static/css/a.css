@@ -1,0 +1,31 @@
+.text-heading :hover {
+  cursor: pointer;
+}
+
+.panel-login>.panel-heading a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 28px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.fullscreen_bg {
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0; */
+  background-size: cover;
+  /* background-position: 50% 50%; */
+  background-image: url('/static/img/chick1.jpg');
+  background-repeat: repeat;
+}
+
+.sbg {
+  background-size: cover;
+  background-image: url('/static/img/chick1.jpg');
+  background-repeat: repeat;
+}
