@@ -48,7 +48,7 @@ func (this *MainController) Authentication() {
 }
 
 //contact us page render
-func (this *MainController) Contact_Us() {
+func (this *MainController) contact_Us() {
 	this.Data["Title"] = "Bird clinic- Write to us"
 	this.Layout = "layout.tpl"
 	this.TplName = "contactus.html"
@@ -71,6 +71,29 @@ func (this *MainController) SpecialistMess() {
 	this.Data["Title"] = "Bird clinic- view messages"
 	this.Layout = "layout.tpl"
 	this.TplName = "specialistmessage.html"
+}
+
+func (this *MainController) DiseasesResponse() {
+	this.Data["Title"] = "Bird clinic- view potential diseases"
+	this.Data["Name"] = Diseases
+	this.Layout = "layout.tpl"
+	this.TplName = "diseaseoutput.html"
+}
+
+func (this *MainController) find_pro(view string) {
+	this.Data["Title"] = "Bird clinic- search for a specialist"
+	// this.Data["Name"] = Diseases
+	this.Layout = "layout.tpl"
+	this.TplName = view+".html"
+}
+
+func (this *MainController) NoResults() {
+	this.Data["Title"] = "Bird clinic- the results found"
+	this.Data["Search"] = Search
+	this.Data["Len"] = Len
+	this.Data["Results"] = Pros
+	this.Layout = "layout.tpl"
+	this.TplName = "noresults.html"
 }
 
 func (this *MainController) Logout() {

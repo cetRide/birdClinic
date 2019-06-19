@@ -24,7 +24,18 @@ type Pro struct{
 	Password string
 }
 
+type Symptom struct{
+	Id string `orm:"pk"`
+	Name string
+	Disease_id string
+}
+
+type Disease struct {
+	Id string `orm:"pk"`
+	Name string
+	Disease_id string
+}
 
 func init() {
-	orm.RegisterModel(new(Farmer_account), new(Pro))
+	orm.RegisterModel(new(Farmer_account), new(Pro), new(Symptom), new(Disease))
 }

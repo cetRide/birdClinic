@@ -745,14 +745,22 @@ Transfer.transfer(settings);
 
 $('#mySubmit').click(function () {
     console.log(finalData)
+
     axios.post('/symptom_submit', {
         data: finalData
     })
-        .then(function (response) {
-            console.log(response);
+        .then(data => {
+            window.location.href = data.data.Response
+            alert("Symptoms successfully submitted")
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+        .catch(err => {
+            var respo = err.response.data
 
-});
+            if (respo.Results == "invalid") {
+                alert("No disease is found") ///error page !!!
+                window.location.href = data.data.Response
+
+            }
+
+        })
+})

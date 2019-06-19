@@ -1,0 +1,38 @@
+<body>
+    <div>
+        <h1><a href="/" title="Home" class="text-success font-weight-bold ml-5">Bird Clinic</a></h1>
+    </div>
+    <div class="mt-5 container">
+        <h2 class="text-center font-weight-bold">Results</h2>
+        <div class="row ml-5">
+            <div class="col-md-4">
+                <div class="border p-3 mx-2">
+                    <h5>
+                        <p class="mt-5 mb-3 text-center">Username</p>
+                    </h5>
+                    <hr>
+                    <h5 class="mb-3 ml-2"><a href="/">Back to symptom dashboard</a></h5>
+                    <a href="/find_pro"><button class="btn btn-success py-2 px-3 mb-3">Contact specialist</button></a>
+                    <h5 class="mb-3 ml-2"> <a href="/">Need help?</a></h5>
+                    <h5 class="mb-3 ml-2"> <a href="/contact_us">Write to us</a></h5>
+                    <h5 class="ml-2 mb-4"> <a href="/logout">Logout</a></h5>
+                    <hr>
+                    <p class="text-center">@2019 BirdClinic Designed by Muchuma</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-6 border">
+                <h4 class="my-5 px-3">The possible diseases your bird has are as follows:</h4>
+                <ul class="px-5 text-success" style="font-size: 20px;list-style-type:square">
+                    {{range $diseases := .Name}}
+                    <li class="mb-3">
+                        {{$diseases}}.
+                    </li>
+                    {{end}}
+                </ul>
+
+            </div>
+        </div>
+
+        </div>
+</body>

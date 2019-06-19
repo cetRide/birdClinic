@@ -1,0 +1,76 @@
+<body>
+    <div>
+        <h1><a href="/" title="Home" class="text-success font-weight-bold ml-5">Bird Clinic</a></h1>
+    </div>
+    <div class="mt-5 container">
+        <h4 class="text-center font-weight-bold">Search results.</h4>
+
+        {{if (gt .Len 0)}}
+        <p class="font-weight-bold"><a href="/find_pro">Search again ...</a></p>
+        <div class="row">
+            <div class="col-md-3">
+                <hr>
+                <div class="border p-3">
+                    <p class="text-center text-primary">Username</p>
+                    <p> <a href="/" class="text-success">Back to home page</a></p>
+                    <p><a href="/contact_us" class="text-success">Contact us</a></p>
+                    <p> <a href="/logout" class="text-success text-right">Log out</a></p>
+                </div>
+                <hr>
+
+                <p class="text-primary text-center">@2019 Bird Clinic Designed by Muchama</p>
+<hr>
+            </div>
+            <div class="col-md-8 border">
+                <table class="table">
+                    <thead class="font-weight-bolder">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col" class="ml-3">Email</th>
+                            <th scope="col" class="ml-3">Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range $result := .Results}}
+                        <tr>
+                            <td scope="row">{{$result.FirstName}} {{$result.LastName}}</td>
+                            <td scope="row">{{$result.Email}}</td>
+                            <td scope="row">{{$result.Phone}}</td>
+                            <td scope="row"><a href="/" class="text-success">contact me</a></td>
+                        </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+                {{else}}
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-2 ml-auto mr-auto">
+                <img src="/static/img/error.svg" alt="Error message">
+            </div>
+            <div class="col-md-7 ml-auto mr-auto mt-3 text-center">
+                <h5>We couldn't find anything for:<h6 class="font-weight-bold">{{.Search}}.</h5>
+                </h6>
+                <p class="mt-4">Try different or less specific names. <a href="/find_pro">Search again.</a></p>
+
+                <div class="row m-5">
+                    <div class="col text-left">
+                        <a href="/" class="text-success">Back to home page</a>
+                    </div>
+                    <div class="col text-center">
+                        <a href="/contact_us" class="text-success">Contact us</a>
+                    </div>
+                    <div class="col text-right">
+                        <a href="/logout" class="text-success text-right">Log out</a>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <p class="text-primary">@2019 Bird Clinic Designed by Muchama</p>
+                </div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+
+</body>
