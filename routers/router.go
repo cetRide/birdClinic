@@ -11,6 +11,8 @@ func init() {
 	beego.Router("/specialist-authentication", &controllers.MainController{}, "get,post:SpecialistAuth")
 	beego.Router("/specialist-messages", &controllers.MainController{}, "get,post:SpecialistMess")
 	beego.Router("/search-results", &controllers.MainController{}, "get,post:NoResults")
+	beego.Router("/send-messge", &controllers.SendMessageController{}, "get,post:SendMessage")
+	beego.Router("/send-message", &controllers.WriteToProController{})
 	beego.Router("/contact_us", &controllers.Contact_UsController{})
 	beego.Router("/symptom_checker", &controllers.MainController{}, "get,post:Symptom_Checker")
 	beego.Router("/find_pro", &controllers.FindProController{}, "get,post:FindPro")

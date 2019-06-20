@@ -96,6 +96,17 @@ func (this *MainController) NoResults() {
 	this.TplName = "noresults.html"
 }
 
+func (this *MainController) sendMessage(view string) {
+	this.Data["Title"] = "Bird clinic- contact the specialist"
+	this.Data["District"] = District1
+	this.Data["County"] = County1
+	this.Data["Country"] = Country1
+	this.Data["FirstName"] = FirstName1
+	this.Data["LastName"] = LastName1
+	this.Layout = "layout.tpl"
+	this.TplName = view +".html"
+}
+
 func (this *MainController) Logout() {
 	// Check if user is logged in
 	session := this.StartSession()
@@ -106,3 +117,5 @@ func (this *MainController) Logout() {
 	}
 	this.Redirect("/", 302)
 }
+
+

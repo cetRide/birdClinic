@@ -1,0 +1,25 @@
+<body>
+    <div>
+        <h1><a href="/" title="Home" class="text-success font-weight-bold ml-5">Bird Clinic</a></h1>
+    </div>
+    <div class="mt-5 container">
+        <h4 class="text-center font-weight-bold">Write the message.</h4>
+
+        <p>Pro details</p>
+        <p>{{.FirstName}}  {{.LastName}}</p>
+        <p>{{.Phone}}</p>
+        <p>{{.District}}</p>
+        <p>{{.County}}</p>
+        <p>{{.Country}}</p>
+        <hr>
+        <div class="col-md-4">
+            <form>
+                <label for="message">Message</label>
+                <textarea name="message" id="message" cols="100" rows="20" placeholder="Write your message here ..">
+            </textarea>
+                <button class="btn btn-success mt-3" type="submit" id="submit">Send Message</button>
+            </form>
+        </div>
+
+    </div>
+</body>

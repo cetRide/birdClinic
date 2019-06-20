@@ -36,7 +36,7 @@
                             <td scope="row">{{$result.FirstName}} {{$result.LastName}}</td>
                             <td scope="row">{{$result.Email}}</td>
                             <td scope="row">{{$result.Phone}}</td>
-                            <td scope="row"><a href="/" class="text-success">contact me</a></td>
+                            <td scope="row"><a href="send-messge?email={{$result.Email}}" class="text-success">contact me</a></td>
                         </tr>
                         {{end}}
                     </tbody>
