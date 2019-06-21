@@ -20,7 +20,7 @@ type FarmerLoginErrorJson struct {
 }
 
 var responsejson FarmerLoginErrorJson
-
+var F_email, F_phone string
 func (this *FarmerLoginController) Get() {
 	this.Authentication()
 }
@@ -45,7 +45,8 @@ func (this *FarmerLoginController) Post() {
 	if exist == true && err == nil {
 		session := this.StartSession()
 		session.Set("UserID", h)
-	
+	F_email = farmer.Email
+	F_phone = farmer.Username
 		
 		responsejson.Messages = "/symptom_checker" 
 		obj, _ := json.Marshal(responsejson)

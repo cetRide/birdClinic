@@ -1,13 +1,45 @@
-<body >
-    <div>
-        <h1><a href="/" title="Home" class="text-success font-weight-bold ml-5">Bird Clinic</a></h1>
-    </div>
-    <div class="mt-5 container">
-        <h4 class="text-center font-weight-bold">Messages</h4>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark success-color">
+        <a class="navbar-brand" href="/" title="Home">Bird Clinic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact_us">Contact us</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <div class="container">
+        <h4 class="text-center mt-3 font-weight-bold">Messages</h4>
+
+        {{if (gt .Len 0)}}
+        <hr>
+        {{range $mssg := .Message}}
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col">
+                    <p>From: <a href="" class="ml-3">{{$mssg.Email}}</a> </p>
+                </div>
+                <div class="col">
+                    <p>Date: <a href="" class="ml-3"> {{$mssg.SendDate}}</a> </p>
+                </div>
+            </div>
+            <h3 class="font-weight-bolder"> {{$mssg.Subject}}</h3>
+            <p> {{$mssg.Message}}</p>
+            <p class="text-right"><a href="/delete-mssg?id={{$mssg.Id}}">Delete</a></p>
+        </div>
+        <hr>
+        {{end}}
+        {{else}}
         <div class="col-md-4 ml-auto mr-auto m-5 text-center">
             <p>Sorry you currently have no messages.</p>
             <p>Thank you and welcome back to Bird Clinic!!</p>
-            <div class="row  m-5"> 
+            <div class="row  m-5">
                 <div class="col">
                     <a href="/" class="text-success">Back to home page</a>
                 </div>
@@ -19,6 +51,7 @@
                 <p class="text-primary">@2019 Bird Clinic Designed by Muchuma</p>
             </div>
         </div>
+        {{end}}
     </div>
 
 </body>

@@ -1,25 +1,59 @@
 <body>
-    <div>
-        <h1><a href="/" title="Home" class="text-success font-weight-bold ml-5">Bird Clinic</a></h1>
-    </div>
-    <div class="mt-5 container">
-        <h4 class="text-center font-weight-bold">Write the message.</h4>
+    <nav class="navbar navbar-expand-sm navbar-dark success-color">
+        <a class="navbar-brand" href="/">Bird Clinic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact_us">Contact us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/symptom_checker">Symptom check</a>
+                </li>
 
-        <p>Pro details</p>
-        <p>{{.FirstName}}  {{.LastName}}</p>
-        <p>{{.Phone}}</p>
-        <p>{{.District}}</p>
-        <p>{{.County}}</p>
-        <p>{{.Country}}</p>
-        <hr>
-        <div class="col-md-4">
-            <form>
-                <label for="message">Message</label>
-                <textarea name="message" id="message" cols="100" rows="20" placeholder="Write your message here ..">
-            </textarea>
-                <button class="btn btn-success mt-3" type="submit" id="submit">Send Message</button>
-            </form>
+            </ul>
+            <a class="nav-link nav-item btn btn-outline-white waves-effect py-2" href="/logout">Logout</a>
+
         </div>
+    </nav>
+    <div class="container">
+        <h4 class="text-center font-weight-bold mt-3">Write the message...</h4>
+        <h4 class="text-success mt-3">Specialist Details</h4>
 
+        <div class="row">
+            <div class="col-md-4">
+                <hr>
+                <p class="font-weight-bold">Name:<a href="" class="ml-4">{{.FirstName}} {{.LastName}}</a></p>
+                <p class="font-weight-bold">Phone:<a href="" class="ml-4">{{.Phone}}</a></p>
+                <p class="font-weight-bold">County:<a href="" class="ml-3">{{.County}}</a></p>
+                <p class="font-weight-bold">Country:<a href="" class="ml-2">{{.Country}}</a></p>
+                <hr>
+                <p class="text-primary text-left my-5">@2019 Bird Clinic Designed by Muchuma</p>
+            </div>
+            <div class="col-md-7">
+                <form>
+                    <div class="form-group">
+                        <label for="subject" class="font-weight-bold mb-3">Message heading:</label>
+                        <input type="text" name="subject" id="subject" class="form-control form-control-lg">
+                        <small id="subjectError" class="text-danger small-text" style="display: none;">Subject field is
+                            empty.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="font-weight-bold mb-3">Message:</label>
+                        <textarea class="form-control" name="message" id="message" rows="7"
+                            placeholder="Write your message here ..">
+                    </textarea>
+                        <small id="messageError" class="text-danger small-text" style="display: none;">Message field is
+                            empty.</small>
+                    </div>
+                    <button class="btn btn-success mt-2" type="submit" id="send">Send Message</button>
+                </form>
+
+            </div>
+        </div>
     </div>
+    <script src="/static/js/message.js"></script>
 </body>

@@ -13,18 +13,18 @@ type SendMessageController struct {
 	MainController
 }
 
-var Email, FirstName1, LastName1, District1, County1, Country1, PhoneNo string
+var Email, Username, FirstName1, LastName1, District1, County1, Country1, PhoneNo string
 
 func (this *SendMessageController) SendMessage() {
 
 	// this.sendMessage("sendmessge")
 	if this.Ctx.Input.Method() == "GET" {
-		Email := this.GetString("email")
-		fmt.Println("Echoe the email", Email)
+		email := this.GetString("email")
+		fmt.Println("Echoe the email", email)
 		o := orm.NewOrm()
 		o.Using("default")
 
-		pro := models.Pro{Email: Email}
+		pro := models.Pro{Email: email}
 		err := o.Read(&pro, "Email")
 
 		if err == orm.ErrNoRows {
@@ -32,14 +32,16 @@ func (this *SendMessageController) SendMessage() {
 			panic(err)
 			return
 		}
-		if err ==nil{
-		FirstName1 = pro.First_name
-		LastName1 = pro.Last_name
-		District1 = pro.District
-		Country1 = pro.Country
-		County1 = pro.County
-		PhoneNo = pro.Phone
-		this.Redirect("/send-message", 302)
+		if err == nil {
+			FirstName1 = pro.First_name
+			LastName1 = pro.Last_name
+			District1 = pro.District
+			Country1 = pro.Country
+			County1 = pro.County
+			PhoneNo = pro.Phone
+			Email = pro.Email
+			Username = pro.Username
+			this.Redirect("/send-message", 302)
 		}
 	}
 

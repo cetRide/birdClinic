@@ -2,7 +2,8 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
-)
+	"time"
+	)
 
 type Farmer_account struct {
 	Id       string `orm:"pk"`
@@ -36,6 +37,15 @@ type Disease struct {
 	Disease_id string
 }
 
+type Message struct{
+	Id string `orm:"pk"`
+	Username string
+	Email string
+	Message string
+	Subject string
+	SendDate time.Time
+}
+
 func init() {
-	orm.RegisterModel(new(Farmer_account), new(Pro), new(Symptom), new(Disease))
+	orm.RegisterModel(new(Farmer_account), new(Pro), new(Symptom), new(Disease), new(Message))
 }

@@ -14,6 +14,8 @@ func init() {
 	beego.Router("/send-messge", &controllers.SendMessageController{}, "get,post:SendMessage")
 	beego.Router("/send-message", &controllers.WriteToProController{})
 	beego.Router("/contact_us", &controllers.Contact_UsController{})
+	beego.Router("/display-mssg", &controllers.DisplayMssgController{}, "get,post:DisplayMessage")
+	beego.Router("/delete-mssg", &controllers.DisplayMssgController{}, "get,post:DeleteMessage")
 	beego.Router("/symptom_checker", &controllers.MainController{}, "get,post:Symptom_Checker")
 	beego.Router("/find_pro", &controllers.FindProController{}, "get,post:FindPro")
 	beego.Router("/f-login", &controllers.FarmerLoginController{})
@@ -23,5 +25,6 @@ func init() {
 	beego.Router("/symptom_submit", &controllers.SymptomController{})
 	beego.Router("/potential_risks", &controllers.MainController{}, "get,post:DiseasesResponse")
 	beego.Router("/logout", &controllers.MainController{}, "get,post:Logout")
+	
 }
 

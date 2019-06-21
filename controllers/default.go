@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-
 )
 
 type MainController struct {
@@ -10,6 +9,7 @@ type MainController struct {
 }
 
 var flash = beego.NewFlash()
+
 func (this *MainController) Prepare() {
 
 	this.Data["HeadStyles"] = []string{
@@ -19,8 +19,7 @@ func (this *MainController) Prepare() {
 		"/static/css/jquery.transfer.css",
 		"/static/css/a.css",
 		"/static/css/icon_font/css/icon_font.css",
-	
-		}
+	}
 
 	this.Data["HeadScripts"] = []string{
 		"/static/js/mdb-js/jquery-3.3.1.min.js",
@@ -28,8 +27,6 @@ func (this *MainController) Prepare() {
 		"/static/js/mdb-js/bootstrap.min.js",
 		"/static/js/mdb-js/popper.min.js",
 		"/static/js/axios.min.js",
-		
-		
 	}
 }
 
@@ -56,6 +53,12 @@ func (this *MainController) contact_Us() {
 
 //symptom checker page render
 func (this *MainController) Symptom_Checker() {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- Symptom_checker"
 	this.Layout = "layout.tpl"
 	this.TplName = "symptoms.html"
@@ -68,12 +71,26 @@ func (this *MainController) SpecialistAuth() {
 }
 
 func (this *MainController) SpecialistMess() {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/specialist-authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- view messages"
+	this.Data["Message"] = Mssg
+	this.Data["Len"] = Length
 	this.Layout = "layout.tpl"
 	this.TplName = "specialistmessage.html"
 }
 
 func (this *MainController) DiseasesResponse() {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- view potential diseases"
 	this.Data["Name"] = Diseases
 	this.Layout = "layout.tpl"
@@ -81,13 +98,25 @@ func (this *MainController) DiseasesResponse() {
 }
 
 func (this *MainController) find_pro(view string) {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- search for a specialist"
 	// this.Data["Name"] = Diseases
 	this.Layout = "layout.tpl"
-	this.TplName = view+".html"
+	this.TplName = view + ".html"
 }
 
 func (this *MainController) NoResults() {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- the results found"
 	this.Data["Search"] = Search
 	this.Data["Len"] = Len
@@ -97,14 +126,22 @@ func (this *MainController) NoResults() {
 }
 
 func (this *MainController) sendMessage(view string) {
+	session := this.StartSession()
+	userID := session.Get("UserID")
+	if userID == nil {
+		this.Redirect("/authentication", 302)
+		return
+	}
 	this.Data["Title"] = "Bird clinic- contact the specialist"
 	this.Data["District"] = District1
 	this.Data["County"] = County1
 	this.Data["Country"] = Country1
 	this.Data["FirstName"] = FirstName1
+	this.Data["Phone"] = PhoneNo
+	this.Data["Email"] = Email
 	this.Data["LastName"] = LastName1
 	this.Layout = "layout.tpl"
-	this.TplName = view +".html"
+	this.TplName = view + ".html"
 }
 
 func (this *MainController) Logout() {
@@ -117,5 +154,3 @@ func (this *MainController) Logout() {
 	}
 	this.Redirect("/", 302)
 }
-
-

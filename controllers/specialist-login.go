@@ -19,6 +19,7 @@ type SpecialistLoginErrorJson struct {
 	SpecialistPassword string
 }
 
+var S_Username string
 var spresponsejson SpecialistLoginErrorJson
 
 func (this *SpecialistLoginController) Get() {
@@ -45,7 +46,8 @@ func (this *SpecialistLoginController) Post() {
 	if exist == true && err == nil {
 		session := this.StartSession()
 		session.Set("UserID", h)
-		spresponsejson.SpecialistResponse = "/specialist-messages"
+		S_Username = pro.Username
+		spresponsejson.SpecialistResponse = "/display-mssg"
 		obj, _ := json.Marshal(spresponsejson)
 		this.Ctx.Output.Header("Content-Type", "application/json")
 		this.Ctx.Output.Body(obj)
